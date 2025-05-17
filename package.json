@@ -1,0 +1,28 @@
+{
+  "name": "tsami",
+  "version": "1.0.0",
+  "description": "Asterisk AMI client for Node.js and TypeScript, inspired by nami.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "keywords": [
+    "asterisk",
+    "ami"
+  ],
+  "author": "civilcoder55",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.3.4",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  }
+}
