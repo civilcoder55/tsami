@@ -17,3 +17,5 @@ export * from "./event";
 export * from "./message";
 export * from "./response";
 export * as actions from "./actions";
+export * from "./enums";
+export * from "./interfaces";

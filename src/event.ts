@@ -8,6 +8,8 @@ import { Message } from "./message";
  * @extends Message
  */
 export class Event extends Message {
+  /** The name of the event (e.g., "Hangup", "Dial", "Registry") */
+  name!: string;
   /** The type of event (e.g., "Hangup", "Dial", "Registry") */
   event!: string;
   /** Indicates if this event is part of an event list and its status */
@@ -33,8 +35,7 @@ export class Event extends Message {
    */
   completed(): boolean {
     return (
-      new RegExp(`Complete`, "i").test(this.event) ||
-      this.eventlistCompleted()
+      new RegExp(`Complete`, "i").test(this.event) || this.eventlistCompleted()
     );
   }
 

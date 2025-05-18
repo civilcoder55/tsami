@@ -159,12 +159,13 @@ describe("AMI", () => {
   });
 
   test("onRawEvent should emit Event if not associated with a response", () => {
-    const event = new Event("Event: TestEvent\r\nSome: Value");
+    const event = new Event("Event: Test\r\nSome: Value");
     const spy = jest.spyOn(ami, "emit");
 
     (ami as any).onRawEvent(event);
 
     expect(spy).toHaveBeenCalledWith(AmiEvents.Event, event);
+    expect(spy).toHaveBeenCalledWith("TestEvent", event);
   });
 
   test("onRawResponse should buffer response if more events will follow", () => {

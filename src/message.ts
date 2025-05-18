@@ -97,5 +97,7 @@ export class Message {
         this[keySafe] = valueSafe;
       }
     }
+
+    this.name = this.event;
   }
 }

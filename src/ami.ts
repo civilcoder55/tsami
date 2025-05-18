@@ -29,6 +29,7 @@ export declare interface AMI {
     listener: (response: Response) => void
   ): this;
   on(event: AmiEvents.RawEvent, listener: (event: Event) => void): this;
+  on(event: string, listener: (event: Event) => void): this;
 }
 
 /**
@@ -133,6 +134,7 @@ export class AMI extends EventEmitter {
     }
 
     this.emit(AmiEvents.Event, event);
+    this.emit(event.name + "Event", event);
   }
 
   /**
@@ -300,7 +302,7 @@ export class AMI extends EventEmitter {
     });
 
     this.socket.on("close", (hadError: boolean) => {
-      this.logger.debug("Socket closed");
+      this.logger.debug("Socket closed, hadError: " + hadError);
       this.connected = false;
       this.emit(AmiSocketEvents.Closed, hadError);
     });
