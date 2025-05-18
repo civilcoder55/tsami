@@ -33,7 +33,7 @@ export class Event extends Message {
    */
   completed(): boolean {
     return (
-      new RegExp(`\\bComplete\\b`, "i").test(this.event) ||
+      new RegExp(`Complete`, "i").test(this.event) ||
       this.eventlistCompleted()
     );
   }
@@ -48,8 +48,8 @@ export class Event extends Message {
     if (!this.eventlist) return false;
 
     return (
-      new RegExp(`\\bComplete\\b`, "i").test(this.eventlist) ||
-      new RegExp(`\\DBGetResponse\\b`, "i").test(this.eventlist)
+      new RegExp(`Complete`, "i").test(this.eventlist) ||
+      new RegExp(`DBGetResponse`, "i").test(this.eventlist)
     );
   }
 }
